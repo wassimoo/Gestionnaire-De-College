@@ -33,7 +33,7 @@
 
             <div class="logo hidden-sm-down">
                 <h1>
-                    <a href="index-2.html">Gestionnaire d'élèves</a>
+                    <a href="index.php">Gestionnaire d'élèves</a>
                 </h1>
             </div>
 
@@ -143,7 +143,7 @@
 
                 <ul class="navigation">
                     <li class="navigation__active">
-                        <a href="index-2.html">
+                        <a href="index.php">
                             <i class="zmdi zmdi-home"></i> Accueil</a>
                     </li>
 
@@ -152,7 +152,7 @@
                             <i class="zmdi zmdi-view-week"></i> Gestion</a>
                         <ul>
                             <li>
-                                <a href="#.html">élèves</a>
+                                <a href="gestionEleve.html">élèves</a>
                             </li>
                             <li>
                                 <a href="#.html">enseignants</a>
