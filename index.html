@@ -33,7 +33,7 @@
 
             <div class="logo hidden-sm-down">
                 <h1>
-                    <a href="index-2.html">Gestionnaire d'élèves</a>
+                    <a href="index.php">Gestionnaire d'élèves</a>
                 </h1>
             </div>
 
@@ -127,76 +127,43 @@
 
                 <div class="user">
                     <div class="user__info" data-toggle="dropdown">
-                        <img class="user__img" src="img/pp/1.jpg" alt="">
+                        <img class="user__img" src="img/pp/{{admin_id}}.jpg" alt="">
                         <div>
-                            <div class="user__name">Admin</div>
-                            <div class="user__email">Admin@Admin.Admin</div>
+                            <div class="user__name">Administrateur</div>
+                            <div class="user__email">{{name}} {{last_name}}</div>
                         </div>
                     </div>
 
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">View Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="#">Se déconnecter</a>
                     </div>
                 </div>
 
                 <ul class="navigation">
                     <li class="navigation__active">
-                        <a href="index-2.html">
+                        <a href="index.php">
                             <i class="zmdi zmdi-home"></i> Accueil</a>
                     </li>
 
-                    <li class="navigation__sub">
-                        <a href="#">
-                            <i class="zmdi zmdi-view-week"></i> Gestion</a>
-                        <ul>
-                            <li>
-                                <a href="#.html">élèves</a>
-                            </li>
-                            <li>
-                                <a href="#.html">enseignants</a>
-                            </li>
-                            <li>
-                                <a href="#.html">salles</a>
-                            </li>
-                            <li>
-                                <a href="#.html">classes</a>
-                            </li>
-                            <li>
-                                <a href="#.html">Administration</a>
-                            </li>
-                        </ul>
+                    <li >
+                        <a href="gestionCours.php">
+                            <i class="zmdi zmdi-view-list"></i> Gestion de cours </a>
                     </li>
-
 
 
                     <li class="navigation__sub ">
                         <a href="#">
-                            <i class="zmdi zmdi-view-list"></i> Listes</a>
+                            <i class="zmdi zmdi-view-list"></i> Disponibilité</a>
 
                         <ul>
                             <li>
-                                <a href="Eleves-Totale.html">Liste élèves</a>
+                                <a href="empty-salles.php">Salles</a>
                             </li>
                             <li>
-                                <a href="ensgntn.html">Liste enseignants</a>
+                                <a href="empty-classes.php">Enseignants</a>
                             </li>
-                            <li>
-                                <a href="empty-salles.html">Liste salles</a>
-                            </li>
-                            <li>
-                                <a href="empty-classes.html">Liste classes</a>
-                            </li>
-
                         </ul>
                     </li>
-
-                    <li>
-                        <a href="Administration.html">
-                            <i class="zmdi zmdi-image"></i> Administration</a>
-                    </li>
-
 
                     <li class="navigation__sub">
                         <a href="#">
@@ -204,18 +171,18 @@
 
                         <ul>
                             <li>
-                                <a href="form-elements.html">Liste des absences</a>
+                                <a href="listeAbsence.php">Liste des absences</a>
                             </li>
                             <li>
-                                <a href="form-components.html">Remplire absences</a>
+                                <a href="RemplireAbsences.php">Remplire absences</a>
                             </li>
 
                         </ul>
                     </li>
 
                     <li>
-                        <a href="calendar.html">
-                            <i class="zmdi zmdi-calendar"></i> Calendrier</a>
+                        <a href="emploi.php">
+                            <i class="zmdi zmdi-calendar"></i> Emploi de Temps </a>
                     </li>
 
                 </ul>
