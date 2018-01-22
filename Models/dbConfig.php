@@ -1,17 +1,31 @@
 <?php
 class DB
-{
-    static $dbh;
-    public static function Establishconnection($host, $username, $pwd, $dbname)
+{   
+     public $port;
+     public $socket;
+     public $host;
+     public $dbname;
+     public $username;
+    
+    function __construct($port,$socket,$host,$username,$dbname){
+        $this->port = $port;
+        $this->socket = $socket;
+        $this->host = $host;
+        $this->dbname = $dbname;
+        $this->username = $username;
+    }
+
+    public  function establishconnection($pwd)
     {
-        $port = 3306;
-        $socket = "";
         try {
-            $dbh = new PDO('mysql:host=' . $host . ';dbname=' . $dbname.';charset=utf8', $username, $pwd);
+             return new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname.';charset=utf8', $this->username, $pwd);
         }catch (PDOException $e) {
-            echo "Error!: " . $e->getMessage() . "<br/>";
+            echo "Error!: " . $e->getMessage() . "<br/>"; //TODO : will it propagate ? will be less uglier to hide this echo message from user
             die();
         }
-        return $dbh;
+    }
+
+    public static function validateConnection($con){
+
     }
 }

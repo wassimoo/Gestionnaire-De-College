@@ -28,7 +28,8 @@ class Login
         }
 
         try {
-            $dbh = DB::Establishconnection("127.0.0.1", "college_admin", "2018", "college");
+            $_SESSION["dbc"] = new DB(3306,"","127.0.0.1","college_admin","college");
+            $dbh = $_SESSION["dbc"]->establishConnection("2018");
             $stmt = $dbh->prepare("SELECT COUNT(ID_ADMIN) AS COUNTS FROM ADMIN WHERE ID_ADMIN = ? AND MDP  = ? ");
             $stmt->execute(array($_POST['id'],$_POST['pwd']));
             $row = $stmt->fetchAll();
@@ -44,20 +45,6 @@ class Login
             // TODO : redirect to 404
             echo "couldn't establish connection";
         }
-
-    }
-
-    private static function updateInfo()
-    {
-        $userName = "ADMIN ";
-        /*
-         * TODO : All login - database requests - user verification goes here
-         */
-
-        /* if not logged in */
-
-        $data = array('USER' => 'wassim', 'nbr_eleves' => '100');
-        TwigLib::bind('index.html', $data);
 
     }
 

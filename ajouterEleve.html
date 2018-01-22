@@ -168,7 +168,7 @@
                                     <a href="empty-salles.php">Salles</a>
                                 </li>
                                 <li>
-                                    <a href="empty-classes.php">Enseignants</a>
+                                    <a href="prof-dispo.php">Enseignants</a>
                                 </li>
                             </ul>
                         </li>
@@ -218,7 +218,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Prenom</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="name">
                                             <i class="form-group__bar"></i>
                                         </div>
                                     </div>
@@ -226,7 +226,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nom</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="last_name">
                                             <i class="form-group__bar"></i>
                                         </div>
                                     </div>
@@ -234,25 +234,25 @@
                                     <div class="col-sm-6" style="margin-top: 15px;">
                                         <div class="form-group">
                                     <label>Classe</label>
-                                    <select class="select2">
-                                        <option selected="selected"></option>
-                                        <option>3éme B 1</option>
-                                        <option>3éme B 2</option>
-                                        <option>3éme B 3</option>
-                                        <option>3éme B 4</option>
-                                        <option>4éme B 1</option>
-                                        <option>4éme B 2</option>
-                                        <option>4éme B 3</option>
-                                        <option>4éme B 4</option>
-                                        <option>5éme B 1</option>
-                                        <option>5éme B 2</option>
-                                        <option>5éme B 3</option>
-                                        <option>5éme B 4</option>
-                                        <option>6éme B 1</option>
-                                        <option>6éme B 2</option>
-                                        <option>6éme B 3</option>
-                                        <option>6éme B 4</option>
-                                        <option>6éme B 5</option>
+                                    <select class="select2" id="classe">
+                                        <option value="0" selected="selected"></option>
+                                        <option value="1">3éme B 1</option>
+                                        <option value="2">3éme B 2</option>
+                                        <option value="3">3éme B 3</option>
+                                        <option value="4">3éme B 4</option>
+                                        <option value="5">4éme B 1</option>
+                                        <option value="6">4éme B 2</option>
+                                        <option value="7">4éme B 3</option>
+                                        <option value="8">4éme B 4</option>
+                                        <option value="9">5éme B 1</option>
+                                        <option value="10">5éme B 2</option>
+                                        <option value="11">5éme B 3</option>
+                                        <option value="12">5éme B 4</option>
+                                        <option value="13">6éme B 1</option>
+                                        <option value="14">6éme B 2</option>
+                                        <option value="15">6éme B 3</option>
+                                        <option value="16">6éme B 4</option>
+                                        <option value="17">6éme B 5</option>
                                     </select>
                                 </div>
                                     </div>
@@ -260,7 +260,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>N° de telephone de parents</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" id="tel">
                                             <i class="form-group__bar"></i>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
     
                                 <div class="form-group">
                                     <label>Addresse</label>
-                                    <textarea class="form-control textarea-autosize" placeholder=""></textarea>
+                                    <textarea class="form-control textarea-autosize" placeholder="" id="adresse"></textarea>
                                     <i class="form-group__bar"></i>
                                 </div>
     
@@ -278,7 +278,7 @@
                                 <div class="clearfix"></div>
     
                                 <div class="mt-5 text-center">
-                                    <a href="#" class="btn btn-light" style="width:140px ">Ajouter </a>
+                                    <a href="#" class="btn btn-light" style="width:140px " id="ajouter">Ajouter </a>
                                 </div>
                             </div>
                         </div>
@@ -307,6 +307,7 @@
 
     <!-- App functions and actions -->
     <script src="js/app.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 

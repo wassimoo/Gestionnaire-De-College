@@ -5,5 +5,4 @@
     Session::LoadSession("login.html");
     $dbh = DB::Establishconnection("127.0.0.1", "college_admin", "2018", "college");
     
-    echo true;
-    
+    echo TwigLib::bind('empty-salles.html', array());

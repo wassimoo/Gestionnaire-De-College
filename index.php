@@ -5,7 +5,7 @@ require_once __DIR__ ."/Models/Session.php";
 require_once __DIR__ ."/Models/importTwig.php";
 
     Session::LoadSession("login.html");
-    $dbh = DB::Establishconnection("127.0.0.1", "college_admin", "2018", "college");
+    $dbh = $_SESSION["dbc"]->establishConnection("2018");
 
 
     //************************** $nbr_eleves **************************
@@ -56,5 +56,7 @@ require_once __DIR__ ."/Models/importTwig.php";
         'article_id' => $articleId,
         'lien_extern' => $link
     );
+
+    $dbh = null; //close connection
 
 echo TwigLib::bind('index.html', $data);

@@ -29,7 +29,8 @@ class Session
     {
         session_start();
 
-        if (!isset($_SESSION['last_activity']) || !isset($_SESSION['last_reg_time']) || !isset($_SESSION['username']))
+        if (!isset($_SESSION['last_activity']) || !isset($_SESSION['last_reg_time']) || !isset($_SESSION['username']) || !isset($_SESSION["dbc"]))
+            //something is wrong! verify user login again
             return Login::processLogin($url);
         else {
             //Verify session is still valid ( last activity < 2 hours ago )

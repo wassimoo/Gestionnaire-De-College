@@ -3,6 +3,5 @@
     require_once __DIR__ ."/Models/importTwig.php";
 
     Session::LoadSession("login.html");
-    $dbh = DB::Establishconnection("127.0.0.1", "college_admin", "2018", "college");
-    
+    $dbh = $_SESSION["dbc"]->establishConnection("2018");
     echo TwigLib::bind('gestionEleve.html', array());
