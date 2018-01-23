@@ -1,5 +1,5 @@
 # Gestionnaire-De-College
-A school managing Website applcation written on demand by professors at FST UTM as part of the exams system.
+A school managing Web application written on demand by professors at FST UTM as part of the exams system.
 
 # Prerequisites
 
