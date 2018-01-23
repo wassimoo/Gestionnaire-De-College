@@ -16,8 +16,8 @@ all js libraries can be found under vendors folder ! no need for bower package m
 # Licence
 this project is for learning purposes only ! unless you are selling it, you are free to do whatever you want with it...
 
-#Notes
- **Before using make sure to set your customised path to Twig autoload.php**
+# Notes
+  * Before using make sure to set your customised path to Twig autoload.php
  
  
 # Heavy thanks to contributers
