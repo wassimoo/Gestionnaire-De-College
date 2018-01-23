@@ -21,5 +21,5 @@ this project is for learning purposes only ! unless you are selling it, you are 
  
  
 # Heavy thanks to contributers
-[**Argoubi Firas**](https://github.com/firasar19) for deigning the views as part of the MVC used in this project.<br>
-[**Boundka Eya**](https://github.com/eya781227) for being the concepter of this project . 
+[**Argoubi Firas**](https://github.com/firasar19) for beign the designer of the views as part of the MVC used in this project.<br>
+[**Boundka Eya**](https://github.com/eya781227) for her work on all conceptual data models including MCT,MOT,DB and DDL langauge for the database
