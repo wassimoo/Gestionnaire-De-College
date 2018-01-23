@@ -208,9 +208,11 @@
                         <div class="card new-contact">
                             
                             <div class="new-contact__header">
-                                <a href="#" class="zmdi zmdi-camera new-contact__upload"></a>
-    
-                                <img src="img/pp/user_empty.png" class="new-contact__img" alt="">
+                            <form id="upper" action="" method="post" enctype="multipart/form-data">
+                                <input id="imgInput" type="file" style="display:none"/>
+                                <a href="#" class="zmdi zmdi-camera new-contact__upload" id="u_link"></a>
+                            </form>
+                                <img src="img/pp/user_empty.png" class="new-contact__img" alt="" id="uploadpp">
                             </div>
     
                             <div class="card-body">
