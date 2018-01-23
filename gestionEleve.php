@@ -4,4 +4,5 @@
 
     Session::LoadSession("login.html");
     $dbh = $_SESSION["dbc"]->establishConnection("2018");
+    
     echo TwigLib::bind('gestionEleve.html', array());

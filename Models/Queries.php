@@ -5,10 +5,13 @@ class Queries
      * @param $dbh PDO with connection established
      * @param $query string query string with no data to be prepared
      * @param $data array  data to perform query with
-     * @return array returned by fechAll() containing all result rows
+     * @param $type string specifies query type (select,insert,modify,update,alter)
+     * @return array returned by fechAll() containing all result rows if Select stmnt
+     * or
+     * @return boolean result of execute() function if it's an Insert stmnt
      * @throws invalidDataException
      */
-    public static function performQuery($dbh, $query, $data)
+    public static function performQuery($dbh, $query, $data, $type)
     {
         if (!self::validateData($data)) {
             require_once __DIR__ . "DataExceptions/invalidDataException";
@@ -17,17 +20,28 @@ class Queries
 
         $stmt = $dbh->prepare($query);
         if ($data != null) {
-            $stmt->execute($data);
+            $result = $stmt->execute($data);
         } else {
-            $stmt->execute();
+            $result = $stmt->execute();
         }
-        return $stmt->fetchAll();
+        
+        $type = strtolower($type);
+
+        if ($type == 'select' ) {
+            return $stmt->fetchAll();
+        } else
+        if ($type == 'insert' || $type == 'update') {
+            return $result;
+        }
+
     }
 
     private static function validateData($data)
     {
-        if($data == NULL)
+        if ($data == null) {
             return true;
+        }
+
         foreach ($data as $elmnt) {
             if (self::length($elmnt) == 0) {
                 return false;
