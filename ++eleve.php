@@ -18,7 +18,7 @@ if ($classeId <= 0 || $classeId > 17)
 try {
     //*********************** get new eleve id ********************/
     $query = "SELECT count(ID_ELEVE) FROM ELEVE";
-    $id = Queries::performQuery($dbh, $query, array($classeId), 'select')[0][0];
+    $id = intval( Queries::performQuery($dbh, $query, array($classeId), 'select')[0][0]);
     //************************** `ID_ELEVE`  ***********************/
 
     //************************** Upload profile Picture ********************/
