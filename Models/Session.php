@@ -6,8 +6,9 @@
  * Time: 23:24
  */
 
- require_once("Login.php");
- require_once ("Utils.php");
+ require_once "Login.php";
+ require_once "Utils.php";
+
 class Session
 {
     /*
@@ -30,26 +31,10 @@ class Session
         session_start();
 
         if (!isset($_SESSION['last_activity']) || !isset($_SESSION['last_reg_time']) || !isset($_SESSION['username']) || !isset($_SESSION["dbc"]))
+        {
             //something is wrong! verify user login again
             return Login::processLogin($url);
-        else {
-            //Verify session is still valid ( last activity < 2 hours ago )
-            /* if ($_SESSION['last_activity'] > time() - 60 * 60 * 2) {
-                 session_unset();
-                 session_destroy();
-                 header($url);
-             } else {
-                 // Session is valid
-                 // is it time to update session id ??
-                 if (!isset($_SESSION['last_reg_time']))
-                     self::regenerateId();
-                 else if ($_SESSION['last_reg_time' > time() - 60 * 10]) {
-                     //10 minutes without refreshing page !
-                     self::regenerateId();
-                 }
-                 else
-             }
-         }*/
+        }else {
             return true;
         }
     }

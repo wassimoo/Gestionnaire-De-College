@@ -6,7 +6,6 @@
  * Time: 16:57
  */
 require_once "dbConfig.php";
-require_once "Session.php";
 
 class Login
 {
@@ -25,6 +24,7 @@ class Login
         if(!isset($_POST['id']) || !isset($_POST['pwd'])){
             require_once "Utils.php";
             _Url::redirect($url);
+            return false;
         }
 
         try {

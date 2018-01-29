@@ -2,8 +2,11 @@
 require_once __DIR__ .'/Models/Queries.php';
 require_once __DIR__ ."/Models/Session.php";
 require_once __DIR__ ."/Models/importTwig.php";
-
-    Session::LoadSession("login.html");
+    session_start();
+    
+   if(!Session::LoadSession("login.html"))
+            return;
+    
     $dbh = $_SESSION["dbc"]->establishConnection("2018");
 
 
@@ -26,6 +29,8 @@ require_once __DIR__ ."/Models/importTwig.php";
     $rows = Queries::performQuery($dbh, $query, array($_SESSION['username']),"select");
     $name = $rows[0][1];
     $lastName = $rows[0][2];
+    $_SESSION["name" ]= $name;
+    $_SESSION["lastName"] = $lastName;
     //*****************************************************************
 
     //********************** All Article things ***********************

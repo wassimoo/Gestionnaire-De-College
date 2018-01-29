@@ -4,7 +4,7 @@ A school managing Web application written on demand by professors at FST UTM as 
 # Prerequisites
 
 [**Composer dependecy manager.**](https://getcomposer.org/)<br>
-[**Symphony Twig.**](https://twig.symfony.com/)<br>
+[**Symfony Twig.**](https://twig.symfony.com/)<br>
 [**Apache HTTP Server**](https://httpd.apache.org/)<br>
 
 # Installation

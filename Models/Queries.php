@@ -2,7 +2,7 @@
 class Queries
 {
     /**
-     * @param $dbh PDO with connection established
+     * @param $dbh PDO object with connection established
      * @param $query string query string with no data to be prepared
      * @param $data array  data to perform query with
      * @param $type string specifies query type (select,insert,modify,update,alter)
@@ -11,20 +11,26 @@ class Queries
      * @return boolean result of execute() function if it's an Insert stmnt
      * @throws invalidDataException
      */
+    
     public static function performQuery($dbh, $query, $data, $type)
     {
+        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         if (!self::validateData($data)) {
-            require_once __DIR__ . "DataExceptions/invalidDataException";
+            require_once __DIR__ . "/DataExceptions/invalidDataException";
             throw new invalidDataException();
         }
-
+        if(! is_a($dbh,"PDO"))
+            return false;
+        
         $stmt = $dbh->prepare($query);
+
         if ($data != null) {
             $result = $stmt->execute($data);
         } else {
             $result = $stmt->execute();
         }
-        
+
+
         $type = strtolower($type);
 
         if ($type == 'select' ) {
@@ -33,6 +39,8 @@ class Queries
         if ($type == 'insert' || $type == 'update') {
             return $result;
         }
+        else
+            return false;
 
     }
 
