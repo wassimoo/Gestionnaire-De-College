@@ -48,7 +48,7 @@ $(document).ready(function () {
 
 
 
-    $("#ajouter").click(function(){
+    $("#ajouter").click(function () {
         var name = $("#name").val();
         var lastName = $("#last_name").val();
         var classeId = $("#classe").val();
@@ -61,14 +61,14 @@ $(document).ready(function () {
             //TODO : notif
             alert("Merci de remplire tous les champs");
 
-        
-        form_data.append("image",file_data) // Appending parameter named file with properties of file_field to form_data
-        form_data.append("name",name ) // Adding extra parameters to form_data
-        form_data.append("lastName",lastName )
-        form_data.append("classeId",classeId )
-        form_data.append("tel",tel )
-        form_data.append("adresse",adresse )
-        
+
+        form_data.append("image", file_data) // Appending parameter named file with properties of file_field to form_data
+        form_data.append("name", name) // Adding extra parameters to form_data
+        form_data.append("lastName", lastName)
+        form_data.append("classeId", classeId)
+        form_data.append("tel", tel)
+        form_data.append("adresse", adresse)
+
 
         $.ajax({
             url: '++eleve.php',
@@ -81,4 +81,99 @@ $(document).ready(function () {
             }
         })
     });
+
+    $("#date_picker").on("change", function () {
+        var date = $("#date_picker").val().substr(0, 14);
+        date += "00:00";
+        $.ajax({
+            url: "availableProf.php",
+            type: "GET",
+            data: { hour: date },
+            dataType: "html",
+            success: function (html) {
+                if (html != "false")
+                    $("#enseignant").html(html);
+                else
+                    alert("error");
+            }
+        })
+    });
+
+    $('.class_search').on('change', function () {
+        var classeId = $("#classe").val();
+        var materiel = $("#materiel").val();
+        var date = $("#date_picker").val();
+        var idProf = $("#enseignant").val();
+
+        if (idProf == null || idProf == 0 || classeId == 0)
+            return;
+
+        $.ajax({
+            url: "httpEmptySalles.php",
+            type: "POST",
+            data: {
+                classeId: classeId,
+                materiel: materiel,
+                date: date,
+                idProf: idProf
+            },
+            dataType: "html",
+            success: function (html) {
+                if (html != "false")
+                    $(".courses").html(html);
+                else
+                    alert("error");
+            }
+        })
+
+    });
+
+    $("#classe").on("change", function () {
+        var classe = $("#classe").val();
+
+        if (classe == 0 )
+          return;
+
+          $.ajax({
+            url: "httpEleves.php",
+            type: "POST",
+            data: {
+                classeId: classe
+            },
+            dataType: "html",
+            success: function (html) {
+                if (html != "false"){
+                   $("#all_eleve").html(html);
+                }
+                else
+                $("#all_eleve").html("<p style='margin-left:25px'>aucun élève dans cette classe</p>");
+            }
+        })
+    });
+});
+
+$(document).on("click",".contacts__img", function () {
+    var id = $(this).attr('id'); // or var clickedBtnID = this.id
+    var seance = $("#seance").val().substr(0, 14);
+    if(seance == ""){
+        alert("heure d'absence est vide ");
+    }
+    seance += "00:00";
+
+    $.ajax({
+        url: "httpAddAbsence.php",
+        type: "POST",
+        data: {
+            eleveId: id,
+            heure : seance
+        },
+        dataType: "html",
+        success: function (html) {
+            if (html != "false"){
+             
+            }
+            else
+            
+        }
+    })
 });

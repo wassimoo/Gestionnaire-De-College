@@ -262,14 +262,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <!--TODO : {% foreach student in students %} -->
+                                    
                                     <td>{{name_eleve}}</td>
                                     <td>{{last_name_eleve}}</td>
                                     <td>{{classe}}</td>
                                     <td>{{date_hour}}</td>
                                     <td> {{length}} </td>
                                     <td style="text-align:center;">
-                                        {%if justified == true %}
+                                        {% if justified == "true" %}
                                         <i class="zmdi zmdi-check"></i>
                                         {% endif %}
                                     </td>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
     <link rel="stylesheet" href="vendors/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="vendors/bower_components/flatpickr/dist/flatpickr.min.css" />
 
     <!-- App styles -->
     <link rel="stylesheet" href="css/app.min.css">
@@ -123,332 +124,134 @@
         </header>
 
         <aside class="sidebar">
-                <div class="scrollbar-inner">
-    
-                    <div class="user">
-                        <div class="user__info" data-toggle="dropdown">
-                            <img class="user__img" src="img/pp/{{admin_id}}.jpg" alt="">
-                            <div>
-                                <div class="user__name">Administrateur</div>
-                                <div class="user__email">{{name}} {{last_name}}</div>
-                            </div>
-                        </div>
-    
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Se déconnecter</a>
+            <div class="scrollbar-inner">
+
+                <div class="user">
+                    <div class="user__info" data-toggle="dropdown">
+                        <img class="user__img" src="img/pp/{{admin_id}}.jpg" alt="">
+                        <div>
+                            <div class="user__name">Administrateur</div>
+                            <div class="user__email">{{name}} {{last_name}}</div>
                         </div>
                     </div>
-    
-                    <ul class="navigation">
-                        <li>
-                            <a href="index.php">
-                                <i class="zmdi zmdi-home"></i> Accueil</a>
-                        </li>
-    
-                        <li class="navigation__sub ">
-                            <a href="#">
-                                <i class="zmdi zmdi-collection-text"></i>Gestion
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="gestionEleve.php">Gestion d'élèves</a>
-                                </li>
-                                <li>
-                                    <a href="gestionCours.php">Gestion de cours</a>
-                                </li>
-                            </ul>
-                        </li>
-    
-    
-                        <li class="navigation__sub ">
-                            <a href="#">
-                                <i class="zmdi zmdi-view-list"></i> Disponibilité</a>
-    
-                            <ul>
-                                <li>
-                                    <a href="empty-salles.php">Salles</a>
-                                </li>
-                                <li>
-                                    <a href="prof-dispo.php">Enseignants</a>
-                                </li>
-                            </ul>
-                        </li>
-    
-                        <li class="navigation__sub">
-                            <a href="#">
-                                <i class="zmdi zmdi-collection-text"></i> Absences</a>
-    
-                            <ul>
-                                <li>
-                                    <a href="listeAbsence.php">Liste des absences</a>
-                                </li>
-                                <li  class="navigation__active">
-                                    <a href="RemplireAbsences.php">Remplire absences</a>
-                                </li>
-    
-                            </ul>
-                        </li>
-    
-                        <li>
-                            <a href="emploi.php">
-                                <i class="zmdi zmdi-calendar"></i> Emploi de Temps </a>
-                        </li>
-    
-                    </ul>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Se déconnecter</a>
+                    </div>
                 </div>
-            </aside>
+
+                <ul class="navigation">
+                    <li>
+                        <a href="index.php">
+                            <i class="zmdi zmdi-home"></i> Accueil</a>
+                    </li>
+
+                    <li class="navigation__sub ">
+                        <a href="#">
+                            <i class="zmdi zmdi-collection-text"></i>Gestion
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="gestionEleve.php">Gestion d'élèves</a>
+                            </li>
+                            <li>
+                                <a href="gestionCours.php">Gestion de cours</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="navigation__sub ">
+                        <a href="#">
+                            <i class="zmdi zmdi-view-list"></i> Disponibilité</a>
+
+                        <ul>
+                            <li>
+                                <a href="empty-salles.php">Salles</a>
+                            </li>
+                            <li>
+                                <a href="prof-dispo.php">Enseignants</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="navigation__sub">
+                        <a href="#">
+                            <i class="zmdi zmdi-collection-text"></i> Absences</a>
+
+                        <ul>
+                            <li>
+                                <a href="listeAbsence.php">Liste des absences</a>
+                            </li>
+                            <li class="navigation__active">
+                                <a href="RemplireAbsences.php">Remplire absences</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="emploi.php">
+                            <i class="zmdi zmdi-calendar"></i> Emploi de Temps </a>
+                    </li>
+
+                </ul>
+            </div>
+        </aside>
 
 
         <section class="content">
             <div class="content__inner">
                 <header class="content__title">
-                    <h1>Gestion d'élèves de {classe}</h1>
+                    <h1>Gestion d'absences</h1>
 
                 </header>
 
 
                 <div class="row">
                     <div class="col-sm-6 col-md-6">
-                        <div class="form-group" style="margin-top:23px;">
-                            <select class="select2">
-                                <option selected="selected"> Veuillez choissir un classe </option>
-                                <option>3éme B 1</option>
-                                <option>3éme B 2</option>
-                                <option>3éme B 3</option>
-                                <option>3éme B 4</option>
-                                <option>4éme B 1</option>
-                                <option>4éme B 2</option>
-                                <option>4éme B 3</option>
-                                <option>4éme B 4</option>
-                                <option>5éme B 1</option>
-                                <option>5éme B 2</option>
-                                <option>5éme B 3</option>
-                                <option>5éme B 4</option>
-                                <option>6éme B 1</option>
-                                <option>6éme B 2</option>
-                                <option>6éme B 3</option>
-                                <option>6éme B 4</option>
-                                <option>6éme B 5</option>
+                        <div class="form-group">
+                            <select class="select2" id="classe">
+                                <option value="0" selected="selected"> Veuillez choissir un classe </option>
+                                <option value="1">3éme B 1</option>
+                                <option value="2">3éme B 2</option>
+                                <option value="3">3éme B 3</option>
+                                <option value="4">3éme B 4</option>
+                                <option value="5">4éme B 1</option>
+                                <option value="6">4éme B 2</option>
+                                <option value="7">4éme B 3</option>
+                                <option value="8">4éme B 4</option>
+                                <option value="9">5éme B 1</option>
+                                <option value="10">5éme B 2</option>
+                                <option value="11">5éme B 3</option>
+                                <option value="12">5éme B 4</option>
+                                <option value="13">6éme B 1</option>
+                                <option value="14">6éme B 2</option>
+                                <option value="15">6éme B 3</option>
+                                <option value="16">6éme B 4</option>
+                                <option value="17">6éme B 5</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="toolbar">
+                    <div class="col-sm-6 col-md-6">
 
-                            <!-- TODO : insert Search component here -->
+                        <!-- TODO : insert Search component here -->
 
-                            <div class="actions">
-                                <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-calendar"></i>
+                            </span>
+                            <div class="form-group">
+                                <input type="text" class="form-control datetime-picker class_search" placeholder="Date & Heure" id="seance">
+                                <i class="form-group__bar"></i>
                             </div>
-
-                            <div class="toolbar__search">
-                                <input type="text" placeholder="Rechercher un élève...">
-
-                                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-sa-action="toolbar-search-close"></i>
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="contacts row">
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/1.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>{prenom} {nom}</strong>
-                                <small>{status}</small>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/3.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>{prenom} {nom}</strong>
-                                <small>{status}</small>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/4.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>{prenom} {nom}</strong>
-                                <small>{status}</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/5.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>{prenom} {nom}</strong>
-                                <small>{status}</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/6.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>{prenom} {nom}</strong>
-                                <small>{status}</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/7.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Charles Spencer</strong>
-                                <small>charles@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/8.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Vickie Reed</strong>
-                                <small>reed@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/9.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Lauren Ruiz</strong>
-                                <small>ruiz@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/10.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Marlene Vasquez</strong>
-                                <small>vasquez@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/11.jpg" alt="">-
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Loretta Morrisonz</strong>
-                                <small>morrisonz@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/12.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Yvonne Wood</strong>
-                                <small>wood@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/13.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Denise Franklin</strong>
-                                <small>franklin@example.com</small>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
-                        <div class="contacts__item">
-                            <a href="#" class="contacts__img">
-                                <img src="img/pp/14.jpg" alt="">
-                            </a>
-
-                            <div class="contacts__info">
-                                <strong>Joseph Gonzalez</strong>
-                                <small>gonzalez@example.com</small>
-                            </div>
-
-
                         </div>
                     </div>
 
                 </div>
+                <div class="contacts row" id="all_eleve">
 
-            </div>
+                    </div>
         </section>
 
     </main>
@@ -462,6 +265,8 @@
     <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
     <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
     <script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="vendors/bower_components/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="vendors/bower_components/autosize/dist/autosize.min.js"></script>
 
 
 
@@ -471,6 +276,8 @@
 
     <!-- App functions and actions -->
     <script src="js/app.min.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 
 

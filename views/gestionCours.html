@@ -214,25 +214,25 @@
                             <div class="col-sm-6 col-md-5">
                                 <div class="form-group">
                                     <label>Choisissez un classe : </label>
-                                    <select class="select2">
-                                        <option selected="selected"> Commencez à écrire </option>
-                                        <option>3éme B 1</option>
-                                        <option>3éme B 2</option>
-                                        <option>3éme B 3</option>
-                                        <option>3éme B 4</option>
-                                        <option>4éme B 1</option>
-                                        <option>4éme B 2</option>
-                                        <option>4éme B 3</option>
-                                        <option>4éme B 4</option>
-                                        <option>5éme B 1</option>
-                                        <option>5éme B 2</option>
-                                        <option>5éme B 3</option>
-                                        <option>5éme B 4</option>
-                                        <option>6éme B 1</option>
-                                        <option>6éme B 2</option>
-                                        <option>6éme B 3</option>
-                                        <option>6éme B 4</option>
-                                        <option>6éme B 5</option>
+                                    <select class="select2 class_search" id="classe">
+                                        <option value="0" selected="selected">Commençez à ecrire ..</option>
+                                        <option value="1">3éme B 1</option>
+                                        <option value="2">3éme B 2</option>
+                                        <option value="3">3éme B 3</option>
+                                        <option value="4">3éme B 4</option>
+                                        <option value="5">4éme B 1</option>
+                                        <option value="6">4éme B 2</option>
+                                        <option value="7">4éme B 3</option>
+                                        <option value="8">4éme B 4</option>
+                                        <option value="9">5éme B 1</option>
+                                        <option value="10">5éme B 2</option>
+                                        <option value="11">5éme B 3</option>
+                                        <option value="12">5éme B 4</option>
+                                        <option value="13">6éme B 1</option>
+                                        <option value="14">6éme B 2</option>
+                                        <option value="15">6éme B 3</option>
+                                        <option value="16">6éme B 4</option>
+                                        <option value="17">6éme B 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -240,11 +240,11 @@
                             <div class="col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <label>Choisissez les matriels nécessaires : </label>
-                                    <select class="select2" multiple>
-                                        <option>rétroprojecteurs</option>
-                                        <option>écrans</option>
-                                        <option>Mécaniques</option>
-                                        <option>Elecroniques</option>
+                                    <select class="select2 class_search" multiple id="materiel">
+                                        <option value="rétroprojecteurs">rétroprojecteurs</option>
+                                        <option value="écrans">écrans</option>
+                                        <option value="Mécaniques">Mécaniques</option>
+                                        <option value="Electroniques">Elecroniques</option>
                                     </select>
                                 </div>
                             </div>
@@ -258,28 +258,24 @@
                         <div class="row">
 
                             <div class="col-sm-6 col-md-5">
-                                <label>Date & Heurs volu</label>
+                                <label>Date & Heurs voulu</label>
 
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="zmdi zmdi-calendar"></i>
                                     </span>
                                     <div class="form-group">
-                                        <input type="text" class="form-control datetime-picker" placeholder="Date & Heure">
+                                        <input type="text" class="form-control datetime-picker class_search" placeholder="Date & Heure" id="date_picker">
                                         <i class="form-group__bar"></i>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
+                                <div class="form-group class_search">
                                     <label>Choisissez un enseignant : </label>
-                                    <select class="select2">
-                                        <option>Mr. Dupont</option>
-                                        <option>Mm. Ramzi</option>
-                                        <option>... ..........</option>
-                                        <option>.............</option>
-                                        <option>..............</option>
+                                    <select class="select2" id="enseignant">
+                                            <option value ='0'>Professeurs Disponible</option>
                                     </select>
                                 </div>
                             </div>
@@ -300,26 +296,9 @@
                                     <th>N° de Salle</th>
                                     <th>Capacité</th>
                                     <th>Type &nbsp&nbsp</th>
-                                    <th>Disponible dé</th>
-                                    <th>Jusqu'a</th>
                                     <th>Affecter</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{num}}</td>
-                                    <td>{{capacity}}</td>
-                                    <td>{{type}}</td>
-                                    <td> {{from}} </td>
-                                    <td>{{until}}</td>
-                                    <td>
-                                        <div class="icon-toggle">
-                                            <input type="checkbox">
-                                            <i class="zmdi zmdi-check"></i>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -345,6 +324,7 @@
 
     <!-- App functions and actions -->
     <script src="js/app.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 

@@ -1,2 +1,4 @@
 vendor/
 .htaccess 
+Models/bd.sql
+img/pp/index.php
