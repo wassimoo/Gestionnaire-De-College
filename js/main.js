@@ -168,12 +168,5 @@ $(document).on("click",".contacts__img", function () {
             heure : seance
         },
         dataType: "html",
-        success: function (html) {
-            if (html != "false"){
-             
-            }
-            else
-            
-        }
     })
 });
